@@ -1,9 +1,10 @@
-name: Contexts
+name: Secrets
 on: push
 jobs:
-    hello:
-        runs-on: ubuntu-latest
-        steps:
-            - run: echo "${{ github.actor }}"
-            - uses: actions/checkout@v4
-            
+  print:
+    runs-on: ubuntu-latest
+    env:
+      PASSWORD: ${{ secrets.PASSWORD }}           # Secretsの参照
+    steps:
+      - run: echo "${PASSWORD}"                   # ログ出力はマスクされる
+      - run: echo "${PASSWORD#?}" # ログ出力はマスクされない
