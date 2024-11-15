@@ -3,8 +3,10 @@ on: push
 jobs:
   print:
     runs-on: ubuntu-latest
-    env:
-      PASSWORD: ${{ secrets.PASSWORD }}           # Secretsの参照
     steps:
-      - run: echo "${PASSWORD}"                   # ログ出力はマスクされる
-      - run: echo "${PASSWORD#?}" # ログ出力はマスクされない
+      - id: source
+        run: echo "result=Hello" >> "${GITHUB_OUTPUT}"
+      - run: echo "result2=Hello2" >> "${GITHUB_OUTPUT}"
+      - env:
+          RESULT: ${{steps.source.outputs.result2}}
+        run: echo "${RESULT}"
