@@ -1,7 +1,9 @@
-name: Debug log
+name: Annotation
 on: push
 jobs:
   log:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "::debug::This is a debug log" # デバッグログ有効化時にのみ出力
+      - run: echo "::error::This is an error"    # Errorレベルのアノテーション
+      - run: echo "::warning::This is a warning" # Warningレベルのアノテーション
+      - run: echo "::notice::This is a notice"   # Noticeレベルのアノテーション
