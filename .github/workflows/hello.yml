@@ -1,9 +1,10 @@
-name: Annotation
+name: Job summaries
 on: push
 jobs:
   log:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "::error::This is an error"    # Errorレベルのアノテーション
-      - run: echo "::warning::This is a warning" # Warningレベルのアノテーション
-      - run: echo "::notice::This is a notice"   # Noticeレベルのアノテーション
+      - run: | # マークダウンテキストをジョブサマリーへ出力
+          echo "## Example Title :rocket:" >> "${GITHUB_STEP_SUMMARY}"
+          echo "- first line" >> "${GITHUB_STEP_SUMMARY}"
+          echo "- second line" >> "${GITHUB_STEP_SUMMARY}"
