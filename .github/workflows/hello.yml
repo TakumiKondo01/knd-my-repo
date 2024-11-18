@@ -1,13 +1,19 @@
-name: Comment
-on: pull_request
+name: Environments
+on:
+  workflow_dispatch:
+    inputs:
+      environment-name:
+        type: environment             # 入力パラメータでEnvironmentsを切り替え
+        default: test
+        required: false
+        description: Environment name
 jobs:
-  comment:
+  print:
     runs-on: ubuntu-latest
-    permissions:           # GITHUB_TOKENの権限を指定
-      pull-requests: write # プルリクエストの書き込みを許可
-      contents: read       # ソースコードの読み込みを許可
+    environment: ${{ inputs.environment-name }} # 利用するEnvironmentsを指定
+    env:
+      USERNAME: ${{ vars.USERNAME }}            # Environment variablesの参照
+      PASSWORD: ${{ secrets.PASSWORD }}         # Environment secretsの参照
     steps:
-      - uses: actions/checkout@v4
-      - run: gh pr comment "${GITHUB_HEAD_REF}" --body "Hello, ${GITHUB_ACTOR}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub CLI用クレデンシャル
+      - run: echo "${USERNAME}"
+      - run: echo "${PASSWORD:0:1} ${PASSWORD#?}"
