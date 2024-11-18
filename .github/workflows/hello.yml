@@ -1,7 +1,7 @@
 name: Dump
 on: push
 jobs:
-  debug:
+  debug1:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4     # ローカルアクション呼び出し前にチェックアウト
