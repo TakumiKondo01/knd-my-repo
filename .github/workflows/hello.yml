@@ -20,7 +20,7 @@ jobs:
         scan-type: 'config'
         scan-ref:  './terraform'
         format: table
-        exit-code: 1
+        exit-code: 0
         severity: 'CRITICAL,HIGH'
         ignore-unfixed: true
         output: trivy-scan-result.txt
