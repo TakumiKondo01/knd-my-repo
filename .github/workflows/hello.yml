@@ -19,4 +19,4 @@ jobs:
       with:
         scan-type: 'config'
         scan-ref:  './terraform'
-        
+        format: 'table'
