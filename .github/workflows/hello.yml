@@ -8,6 +8,7 @@ jobs:
     - name: tf-scan
       run: |
         pwd
+        ls -l
     - name: tf-scan
       uses: aquasecurity/trivy-action@0.28.0
       with:
