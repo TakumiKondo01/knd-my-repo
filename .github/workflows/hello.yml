@@ -6,8 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: tf-scan
+      run: |
+        pwd
+    - name: tf-scan
       uses: aquasecurity/trivy-action@0.28.0
       with:
         scan-type: 'config'
-        scan-ref:  'terraform'
+        scan-ref:  './terraform'
         
