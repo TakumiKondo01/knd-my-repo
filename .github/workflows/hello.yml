@@ -5,7 +5,9 @@ jobs:
     name: scan
     runs-on: ubuntu-latest
     steps:
-    - name: tf-scan
+    - name: ls
+      uses: actions/checkout@v4
+    - name: ls
       run: |
         pwd
         ls -l
