@@ -25,5 +25,5 @@ jobs:
         exit-code: 0
 #        severity: 'CRITICAL,HIGH'
         ignore-unfixed: true
-        trivy-config: '/trivys.yml'
+        trivy-config: '/trivy.yml'
 #        output: trivy-scan-result.txt
