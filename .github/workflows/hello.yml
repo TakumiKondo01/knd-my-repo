@@ -17,7 +17,7 @@ jobs:
     - name: tf-scan
       uses: aquasecurity/trivy-action@0.28.0
       env:
-        DOCKER_TRIVY_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-db    
+        TRIVY_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-db    
       with:
         scan-type: 'config'
         scan-ref:  './terraform'
