@@ -23,7 +23,7 @@ jobs:
         scan-ref:  './terraform'
         format: table
         exit-code: 0
-        severity: 'CRITICAL,HIGH'
+#        severity: 'CRITICAL,HIGH'
         ignore-unfixed: true
         trivy-config: './trivy.yaml'
-        output: trivy-scan-result.txt
+#        output: trivy-scan-result.txt
