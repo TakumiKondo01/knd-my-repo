@@ -1,0 +1,2 @@
+db:
+  repository: public.ecr.aws/aquasecurity/trivy-db

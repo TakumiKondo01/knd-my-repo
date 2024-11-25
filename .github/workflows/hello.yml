@@ -17,7 +17,7 @@ jobs:
     - name: tf-scan
       uses: aquasecurity/trivy-action@0.28.0
       env:
-        TRIVY_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-db    
+        TRIVY_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-db
       with:
         scan-type: 'config'
         scan-ref:  './terraform'
@@ -25,4 +25,5 @@ jobs:
         exit-code: 0
         severity: 'CRITICAL,HIGH'
         ignore-unfixed: true
+        trivy-config: './'
         output: trivy-scan-result.txt
