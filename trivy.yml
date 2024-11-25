@@ -1,2 +1,2 @@
 db:
-  repository: public.ecr.aws/aquasecurity/trivy-db:latest
+  repository: public.ecr.aws/aquasecurity/trivy-db
