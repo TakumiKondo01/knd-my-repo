@@ -23,15 +23,18 @@ jobs:
       run: |
         terraform fmt
         kondo=$(cat main.tf)
-        echo "KONDO<<EOF" >> $GITHUB_OUTPUT
-        echo "$kondo" >> $GITHUB_OUTPUT
-        echo "EOF" >> $GITHUB_OUTPUT
+        EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+        {
+          echo "KONDO<<EOF"
+          echo "$kondo"
+          echo "EOF"
+        } >> $GITHUB_ENV
     - name: Create comment file
       run: |
           cat  << EOF > comment.md
           ## Test Failed
           <details><summary>サマリー</summary>          
-          ${{ steps.terraformfmt.outputs.kondo }}
+          ${env.KONDO}
           EOF
     - name: CreatePRcomment
       run: |
