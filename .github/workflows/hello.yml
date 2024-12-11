@@ -22,7 +22,7 @@ jobs:
       id: terraformfmt
       run: |
         terraform fmt
-        kondo=$(ls -l)
+        kondo=$(cat main.tf)
         echo "KONDO<<EOF" >> $GITHUB_OUTPUT
         echo "$kondo" >> $GITHUB_OUTPUT
         echo "EOF" >> $GITHUB_OUTPUT
