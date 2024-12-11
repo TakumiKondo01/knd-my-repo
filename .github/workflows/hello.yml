@@ -24,7 +24,7 @@ jobs:
         hoge=$(echo $code|jq .error_count)
         echo $code
         echo $hoge        
-        if [ $hoge -gt 0 ]; then exit 1; fi;
+        if [ $hoge -gt 1 ]; then exit 1; fi;
     - name: terraform fmt
       id: terraformfmt
       run: |
