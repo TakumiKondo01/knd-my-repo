@@ -32,7 +32,6 @@ jobs:
           ## Test Failed
           <details><summary>サマリー</summary>          
           ${{ steps.terraformfmt.outputs.kondo }}
-          </details>
           EOF
     - name: CreatePRcomment
       run: |
