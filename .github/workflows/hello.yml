@@ -23,7 +23,9 @@ jobs:
       run: |
         terraform fmt
         kondo=$(ls -l)
-        echo "KONDO=${kondo}" >> "${GITHUB_OUTPUT}"
+        echo "KONDO<<EOF" >> $GITHUB_OUTPUT
+        echo "$kondo" >> $GITHUB_OUTPUT
+        echo "EOF" >> $GITHUB_OUTPUT
       env:
         KONDO: ${{ steps.terraformfmt.outputs.kondo }}
     - name: Create comment file
