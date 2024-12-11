@@ -21,6 +21,7 @@ jobs:
       uses: peter-evans/create-or-update-comment@v4.0.0
       with:
         comment-id: 'test'
+        issue-number: '100'
         body: 'test2'
         edit-mode: replace
 
