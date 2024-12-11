@@ -27,6 +27,8 @@ jobs:
     - name: CreatePRcomment
       run: |
         gh pr comment ${{ github.event.number }} --body-file comment.md
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
 #      uses: aquasecurity/trivy-action@0.28.0
 #      with:
 #        scan-type: 'config'
