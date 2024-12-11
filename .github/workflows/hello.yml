@@ -19,16 +19,19 @@ jobs:
     - name: setupTerraform
       uses: hashicorp/setup-terraform@v3
     - name: terraform fmt
+      id: terraformfmt
       run: |
         terraform fmt
         kondo=$(ls -l)
-        echo "KONDO=${kondo}" >> $GITHUB_ENV
+        echo "KONDO=${kondo}" >> "${GITHUB_OUTPUT}"
+      env:
+        KONDO: ${{ steps.terraformfmt.outputs.kondo }}
     - name: Create comment file
       run: |
           cat  << EOF > comment.md
           ## Test Failed
           <details><summary>サマリー</summary>
-          ${{ env.KONDO }}
+          ${KONDO}
           EOF
     - name: CreatePRcomment
       run: |
