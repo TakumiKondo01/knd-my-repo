@@ -34,6 +34,7 @@ jobs:
           ```go
           ${{ steps.terraformfmt.outputs.kondo }}
           ```
+          </details>
           EOF
     - name: CreatePRcomment
       run: |
