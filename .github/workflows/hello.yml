@@ -22,8 +22,8 @@ jobs:
       run: |
         code=$(terraform validate -json) 
         hoge=$(echo $code|jq .error_count)
-        echo $code
-        echo $hoge        
+        echo ${code}
+        echo ${hoge}        
         if [ $hoge -gt 1 ]; then exit 1; fi;
     - name: terraform fmt
       id: terraformfmt
