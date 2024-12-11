@@ -25,7 +25,7 @@ jobs:
         kondo=$(cat main.tf)
         EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
         {
-          echo "KONDO<<EOF"
+          echo "KONDO<<$EOF"
           echo "$kondo"
           echo "$EOF"
         } >> $GITHUB_ENV
