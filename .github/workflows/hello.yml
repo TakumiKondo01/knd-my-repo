@@ -36,6 +36,7 @@ jobs:
           <details><summary>サマリー</summary>          
           ${{env.KONDO}}
           EOF
+          cat comment.md
     - name: CreatePRcomment
       run: |
         gh pr comment ${{ github.event.number }} --body-file comment.md
