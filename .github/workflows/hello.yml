@@ -31,9 +31,7 @@ jobs:
           cat  << EOF > comment.md
           ## Test Failed
           <details><summary>サマリー</summary>          
-          ```rb
-          ${{ steps.terraformfmt.outputs.kondo }}
-          ```
+          > ${{ steps.terraformfmt.outputs.kondo }}
           </details>
           EOF
     - name: CreatePRcomment
