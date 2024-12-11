@@ -36,9 +36,10 @@ jobs:
           <details><summary>サマリー</summary>          
           ${{env.KONDO}}
           EOF
-          sed -e 's/\#/\\#/g' comment.md > comment.md
+          sed -e 's/\#/\\#/g' comment.md > comment_.md
+          cat comment_.md
     - name: CreatePRcomment
       run: |
-        gh pr comment ${{ github.event.number }} --body-file comment.md
+        gh pr comment ${{ github.event.number }} --body-file comment_.md
       env:
         GITHUB_TOKEN: ${{ github.token }}
