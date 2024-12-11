@@ -21,12 +21,14 @@ jobs:
     - name: terraform fmt
       run: |
         terraform fmt
+        kondo=$(ls -l)
+        echo "KONDO=${kondo}" >> $GITHUB_ENV
     - name: Create comment file
       run: |
           cat  << EOF > comment.md
           ## Test Failed
           <details><summary>サマリー</summary>
-          The tests failed. Please check the logs for more information.
+          ${{ env.KONDO }}
           EOF
     - name: CreatePRcomment
       run: |
