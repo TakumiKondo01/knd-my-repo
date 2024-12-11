@@ -34,7 +34,7 @@ jobs:
           cat  << EOF > comment.md
           ## Test Failed
           <details><summary>サマリー</summary>          
-          ${env.KONDO}
+          ${{env.KONDO}}
           EOF
     - name: CreatePRcomment
       run: |
