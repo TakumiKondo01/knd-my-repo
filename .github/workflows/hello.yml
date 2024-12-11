@@ -20,9 +20,11 @@ jobs:
       uses: hashicorp/setup-terraform@v3
     - name: validate
       run: |
-        code=$(terraform validate -json |jq .error_count)
+        code=$(terraform validate -json) 
+        hoge=$(echo $code|jq .error_count)
         echo $code
-#        if [ $code -gt 0 ]; then exit 1; fi;
+        echo $hoge        
+        if [ $hoge -gt 0 ]; then exit 1; fi;
     - name: terraform fmt
       id: terraformfmt
       run: |
