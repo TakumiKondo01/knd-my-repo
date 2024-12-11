@@ -26,14 +26,12 @@ jobs:
         echo "KONDO<<EOF" >> $GITHUB_OUTPUT
         echo "$kondo" >> $GITHUB_OUTPUT
         echo "EOF" >> $GITHUB_OUTPUT
-      env:
-        KONDO: ${{ steps.terraformfmt.outputs.kondo }}
     - name: Create comment file
       run: |
           cat  << EOF > comment.md
           ## Test Failed
           <details><summary>サマリー</summary>
-          ${KONDO}
+          ${{ steps.terraformfmt.outputs.kondo }}
           EOF
     - name: CreatePRcomment
       run: |
