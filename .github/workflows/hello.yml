@@ -30,7 +30,7 @@ jobs:
       run: |
           cat  << EOF > comment.md
           ## Test Failed
-          <summary>サマリー</summary>          
+          <details><summary>サマリー</summary>          
           ```bash
           ${{ steps.terraformfmt.outputs.kondo }}
           ```
