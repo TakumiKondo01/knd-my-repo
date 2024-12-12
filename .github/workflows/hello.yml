@@ -38,6 +38,7 @@ jobs:
           echo "$kondo"
           echo "$EOF"
         } >> $GITHUB_ENV
+        echo "$kondo"
     - name: Create comment file
       run: |
           cat  << EOF > comment.md
