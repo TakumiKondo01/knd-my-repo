@@ -47,10 +47,10 @@ jobs:
           </code></pre>
           </details>
           EOF
-          sed -e 's/\#/\\#/g' comment.md > comment_.md
+#          sed -e 's/\#/\\#/g' comment.md > comment_.md
 #          cat comment_.md
     - name: CreatePRcomment
       run: |
-        gh pr comment ${{ github.event.number }} --body-file comment_.md
+        gh pr comment ${{ github.event.number }} --body-file comment.md
       env:
         GITHUB_TOKEN: ${{ github.token }}
