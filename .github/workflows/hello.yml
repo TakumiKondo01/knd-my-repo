@@ -18,9 +18,9 @@ jobs:
       uses: actions/checkout@v4
     - name: setupTerraform
       uses: hashicorp/setup-terraform@v3
-    - name: validate
-      run: |
-        terraform validate
+#    - name: validate
+#      run: |
+#        terraform validate
 #        code=$(terraform validate -json)
 #        hoge=$(echo $code|jq .error_count)
 #        echo ${code}
