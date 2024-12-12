@@ -43,12 +43,15 @@ jobs:
       run: |
           cat  << EOF > comment.md
           ***Test Failed***
-          <details><summary>サマリー</summary>          
           <pre><code class="language-diff">
           ${{env.KONDO}}
           </code></pre>
-          </details>
-          EOF
+#          <details><summary>サマリー</summary>          
+#          <pre><code class="language-diff">
+#          ${{env.KONDO}}
+#          </code></pre>
+#          </details>
+#          EOF
     - name: CreatePRcomment
       run: |
         gh pr comment ${{ github.event.number }} --body-file comment.md
