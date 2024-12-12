@@ -39,7 +39,6 @@ jobs:
         } >> $GITHUB_ENV
     - name: Create comment file
       run: |
-          sed -e 's/\#/\\#/g' ${{env.KONDO}} > comment.md
           cat  << EOF > comment.md
           ***Test Failed***
           \`\`\`tf\n
