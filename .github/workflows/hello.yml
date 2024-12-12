@@ -39,7 +39,6 @@ jobs:
         } >> $GITHUB_ENV
     - name: Create comment file
       run: |
-          sed -e 's/\#/\\#/g' ${} > comment_.md
           cat  << EOF > comment.md
           ***Test Failed***
           <details><summary>サマリー</summary>          
@@ -48,7 +47,6 @@ jobs:
           </code></pre>
           </details>
           EOF
-#          cat comment_.md
     - name: CreatePRcomment
       run: |
         gh pr comment ${{ github.event.number }} --body-file comment.md
