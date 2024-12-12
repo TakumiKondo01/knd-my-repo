@@ -39,16 +39,19 @@ jobs:
         } >> $GITHUB_ENV
     - name: Create comment file
       run: |
-          sed -e 's/\#/\\#/g' ${{env.KONDO}} > comment_.md
+          sed -e 's/\#/\\#/g' ${{env.KONDO}} > comment.md
           cat  << EOF > comment.md
           ***Test Failed***
+          \`\`\`tf\n
           <details><summary>サマリー</summary>          
           ${{env.KONDO}}
+          \`\`\`
+          </details>
           EOF
-          sed -e 's/\#/\\#/g' comment.md > comment_.md
-          cat comment_.md
+#          sed -e 's/\#/\\#/g' comment.md > comment_.md
+#          cat comment_.md
     - name: CreatePRcomment
       run: |
-        gh pr comment ${{ github.event.number }} --body-file comment_.md
+        gh pr comment ${{ github.event.number }} --body-file comment.md
       env:
         GITHUB_TOKEN: ${{ github.token }}
