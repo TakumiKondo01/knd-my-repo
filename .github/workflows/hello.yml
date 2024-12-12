@@ -26,6 +26,7 @@ jobs:
 #        echo ${code}
 #        echo ${hoge}        
 #        if [ $hoge -gt 1 ]; then exit 1; fi;
+
     - name: terraform fmt
       id: terraformfmt
       run: |
