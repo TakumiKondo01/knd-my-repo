@@ -30,7 +30,7 @@ jobs:
       id: terraformfmt
       run: |
         terraform fmt
-        kondo=$(cat main.tf)
+        kondo=$(cat com.txt)
         EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
         {
           echo "KONDO<<$EOF"
