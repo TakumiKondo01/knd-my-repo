@@ -41,8 +41,8 @@ jobs:
       run: |
           cat  << EOF > comment.md
           ***Test Failed***
-          \`\`\`tf\n
           <details><summary>サマリー</summary>          
+          \`\`\`tf\n
           ${{env.KONDO}}
           \`\`\`
           </details>
