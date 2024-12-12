@@ -42,9 +42,9 @@ jobs:
           cat  << EOF > comment.md
           ***Test Failed***
           <details><summary>サマリー</summary>          
-          \`\`\`tf\n
+          <pre><code class="language-diff">
           ${{env.KONDO}}
-          \`\`\`
+          </code></pre>
           </details>
           EOF
 #          sed -e 's/\#/\\#/g' comment.md > comment_.md
