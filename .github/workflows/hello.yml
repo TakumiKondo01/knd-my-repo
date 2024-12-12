@@ -43,7 +43,7 @@ jobs:
       run: |
           cat  << EOF > comment.md
           ***Test Failed***
-          <pre><code class="language-diff">
+          <pre><code class="language-terraform">
           ${{env.KONDO}}
           </code></pre>
 #          <details><summary>サマリー</summary>          
