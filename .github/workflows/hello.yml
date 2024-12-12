@@ -39,15 +39,15 @@ jobs:
         } >> $GITHUB_ENV
     - name: Create comment file
       run: |
+          sed -e 's/\#/\\#/g' ${} > comment_.md
           cat  << EOF > comment.md
           ***Test Failed***
           <details><summary>サマリー</summary>          
-          <pre><code class="language-diff">
+          <pre><code class="language-terraform">
           ${{env.KONDO}}
           </code></pre>
           </details>
           EOF
-#          sed -e 's/\#/\\#/g' comment.md > comment_.md
 #          cat comment_.md
     - name: CreatePRcomment
       run: |
